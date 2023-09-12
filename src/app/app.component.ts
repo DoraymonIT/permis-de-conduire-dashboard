@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'permis-de-conduire-dashboard';
+  showPayment: boolean = false;
+
+showPaymentForm() {
+  this.showPayment = true;
+}
+
 }

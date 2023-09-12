@@ -1,0 +1,25 @@
+<div class="exam-date-list-container">
+    <h2>Liste des dates d'examen</h2>
+    <table mat-table [dataSource]="examDates" class="mat-elevation-z8">
+      <!-- Colonnes de la table -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef>ID</th>
+        <td mat-cell *matCellDef="let examDate">{{ examDate.id }}</td>
+      </ng-container>
+  
+      <ng-container matColumnDef="date">
+        <th mat-header-cell *matHeaderCellDef>Date d'examen</th>
+        <td mat-cell *matCellDef="let examDate">{{ examDate.date | date }}</td>
+      </ng-container>
+  
+      <ng-container matColumnDef="price">
+        <th mat-header-cell *matHeaderCellDef>Prix</th>
+        <td mat-cell *matCellDef="let examDate">{{ examDate.price }}</td>
+      </ng-container>
+  
+      <!-- Associez les colonnes à des données -->
+      <tr mat-header-row *matHeaderRowDef="['id', 'date', 'price']"></tr>
+      <tr mat-row *matRowDef="let row; columns: ['id', 'date', 'price']"></tr>
+    </table>
+  </div>
+  

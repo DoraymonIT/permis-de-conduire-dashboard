@@ -1,0 +1,26 @@
+<div class="candidate-list-container">
+    <h2>Liste des candidats</h2>
+    <div>
+      <input type="text" placeholder="Rechercher un candidat" [(ngModel)]="filterText">
+      <button (click)="applyFilter()">Filtrer</button>
+      <button (click)="clearFilter()">Effacer le filtre</button>
+      <button (click)="sortByName()">Trier par nom</button>
+    </div>
+    <table mat-table [dataSource]="filteredCandidates" class="mat-elevation-z8">
+      <!-- Colonnes de la table -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef>ID</th>
+        <td mat-cell *matCellDef="let candidate">{{ candidate.id }}</td>
+      </ng-container>
+  
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef>Nom</th>
+        <td mat-cell *matCellDef="let candidate">{{ candidate.name }}</td>
+      </ng-container>
+  
+      <!-- Associez les colonnes à des données -->
+      <tr mat-header-row *matHeaderRowDef="['id', 'name']"></tr>
+      <tr mat-row *matRowDef="let row; columns: ['id', 'name']"></tr>
+    </table>
+  </div>
+  

@@ -1,0 +1,19 @@
+<form (ngSubmit)="submitPayment()">
+    <div class="form-group">
+      <label for="creditCard">Credit Card Number:</label>
+      <input type="text" id="creditCard" name="creditCard" [(ngModel)]="creditCardNumber" required>
+    </div>
+  
+    <div class="form-group">
+      <label for="expiryDate">Expiry Date:</label>
+      <input type="text" id="expiryDate" name="expiryDate" [(ngModel)]="expiryDate" required>
+    </div>
+  
+    <div class="form-group">
+      <label for="cvc">CVV:</label>
+      <input type="text" id="cvc" name="cvc" [(ngModel)]="cvc" required>
+    </div>
+  
+    <button type="submit">Pay Now</button>
+  </form>
+  

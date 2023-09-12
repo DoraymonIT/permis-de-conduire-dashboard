@@ -1,0 +1,18 @@
+<div class="registration-container">
+    <h2>Inscription au permis de conduire</h2>
+    <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+      <mat-form-field>
+        <input matInput placeholder="Nom complet" formControlName="name">
+        <mat-error *ngIf="registrationForm.get('name')?.hasError('required')">Le nom est requis.</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-select placeholder="Sélectionner une date d'examen" formControlName="selectedExamDate">
+          <mat-option *ngFor="let date of examDates" [value]="date.id">{{ date.date | date }}</mat-option>
+        </mat-select>
+        <mat-error *ngIf="registrationForm.get('selectedExamDate')?.hasError('required')">La date d'examen est requise.</mat-error>
+      </mat-form-field>
+      <button mat-raised-button color="primary" type="submit">S'inscrire</button>
+    </form>
+  </div>
+  
+  <!-- Dans le composant RegistrationComponent -->
